@@ -1,0 +1,15 @@
+ table.config-div {
+    width: 70%;
+}
+table.config-div td,table.config-div-inner th {
+    margin-left: 0;
+    padding-left: 0;
+    text-align: left;
+}
+table.config-div-inner {
+    width: 100%;
+}
+table.config-div-inner {
+    background: #fff;
+    padding: 10px;
+}
