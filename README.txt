@@ -1,114 +1,94 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
+Contributors: aarti1318
 Donate link: https://aarti.com/
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: search, autocomplete, ajax search, posts, pages, products , custom posts
+Requires at least: 5.0
+Tested up to: 6.6
+Requires PHP: 7.4
+Stable tag: 1.0
+License: 
+License URI: 
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Easily add an autocomplete search feature to your WordPress site. Search across posts, pages, and WooCommerce products with a fast, AJAX-powered search box.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+The WP Autocomplete Plugin enhances your WordPress search experience by providing an intuitive, fast, and responsive autocomplete feature. It searches across:
+- Posts
+- Pages
+- WooCommerce Products
+- Custom Posts
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
-A few notes about the sections above:
-
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
-
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
-
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+== Features ==
+*   Real-time Autocomplete Search
+*   Supports Multiple Post Types
+*   Enable search onlu for specific post type or only for products
+*   AJAX-Powered Search
+*   Customizable Search Box
+*   Shortcode Implementation
+*   User-friendly and Accessible
+*   Custom Post Type Support
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+1. Download the Plugin
+Download the plugin zip file from the WordPress Plugin Repository or your provided source.
 
-e.g.
+2. Upload the Plugin
 
-1. Upload `wp-autocomplete.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+*   Go to your WordPress Admin Dashboard.
+*   Navigate to Plugins > Add New.
+*   Click the Upload Plugin button at the top of the screen.
+*   Select the downloaded .zip file and click Install Now.
+
+3. Activate the Plugin
+Once the installation is complete, click Activate Plugin to enable the autocomplete search functionality.
+
+4. Add the Search Box
+Use the [wp_autocomplete] shortcode to display the search box on any post, page, or widget area.
 
 == Frequently Asked Questions ==
 
 = A question that someone might have =
+Yes, the plugin fully supports WooCommerce and can search products, including their titles, and price.
 
-An answer to that question.
+= Can I limit the search to specific post types?   =
+Absolutely! You can Enable the post types to search by using the backend setting
 
-= What about foo bar? =
+= Is this plugin compatible with all themes? =
+Yes, the plugin is designed to work with most WordPress themes. If you encounter style conflicts, you can adjust them with custom CSS.
 
-Answer to foo bar dilemma.
+= Does the plugin work on mobile devices? =
+Yes, the autocomplete feature is fully responsive and works seamlessly on all devices, including desktops, tablets, and smartphones.
+
+= Can I add the search box to a widget area? =
+Yes! Simply use the [wp_autocomplete] shortcode in a text widget, or use the WordPress Block Editor to add the shortcode block.
+
+= How do I style the search box? =
+You can style the search box using your theme's custom CSS or by adding your custom styles to the site’s stylesheet.
+
+= Is the plugin compatible with multilingual sites? =
+Currently, the plugin only supports the English language. Future updates may include support for additional languages.
+
+= Can I display search results on a custom page? =
+At this time, the plugin only provides autocomplete suggestions in the dropdown. However, you can customize your search experience using additional hooks or filters.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. /public/images/Screenshot-1
+2. /public/images/Screenshot-2
+3. /public/images/Screenshot-3
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+= 1.0.0 =
 
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+* Initial release.
+* AJAX-powered autocomplete search for posts, pages, WooCommerce products and custom posts
+* Shortcode support for easy implementation: [wp_autocomplete].
+* Support for multiple post types, including custom post types.
+* Fully responsive and works across all devices.
+* WooCommerce integration for product search.
+* Lightweight and optimized for fast performance.
+* Currently supports English language only.
