@@ -8,8 +8,8 @@
  * @link       https://aarti.com
  * @since      1.0.0
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/public/partials
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/public/partials
  */
 ?>
 

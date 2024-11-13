@@ -1,13 +1,12 @@
 <?php
-
 /**
  * The admin-specific functionality of the plugin.
  *
  * @link       https://aarti.com
  * @since      1.0.0
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/admin
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/admin
  */
 
 /**
@@ -16,8 +15,8 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/admin
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/admin
  * @author     Aarti <chauhan.aarti13@gmail.com>
  */
 class Wp_Autocomplete_Admin {

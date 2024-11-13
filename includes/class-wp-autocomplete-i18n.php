@@ -9,8 +9,8 @@
  * @link       https://aarti.com
  * @since      1.0.0
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/includes
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/includes
  */
 
 /**
@@ -20,8 +20,8 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/includes
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/includes
  * @author     Aarti <chauhan.aarti13@gmail.com>
  */
 class Wp_Autocomplete_i18n {
@@ -35,7 +35,7 @@ class Wp_Autocomplete_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'wp-autocomplete',
+			'autocomplete-search',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

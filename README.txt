@@ -1,15 +1,15 @@
-=== Plugin Name ===
+=== Autocomplete Search ===
 Contributors: aarti1318
 Donate link: https://aarti.com/
-Tags: search, autocomplete, ajax search, posts, pages, products , custom posts
+Tags: autocomplete, ajax search, posts, pages, products
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0
-License: 
-License URI: 
+Stable tag: 1.0.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily add an autocomplete search feature to your WordPress site. Search across posts, pages, and WooCommerce products with a fast, AJAX-powered search box.
+Add an autocomplete search feature to your WordPress site.Search across posts,pages, and WooCommerce products with a fast,AJAX-powered search box.
 
 == Description ==
 

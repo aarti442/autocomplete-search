@@ -6,16 +6,16 @@
  * @link       https://aarti.com
  * @since      1.0.0
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/public
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/public
  */
 
 /**
  * The public-facing functionality of the plugin.
  *
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/public
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/public
  * @author     Aarti <chauhan.aarti13@gmail.com>
  */
 class Wp_Autocomplete_Public {

@@ -5,14 +5,14 @@
  * @link       https://aarti.com
  * @since      1.0.0
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/includes
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/includes
  */
 
 /**
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/includes
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/includes
  * @author     Aarti <chauhan.aarti13@gmail.com>
  */
 class Wp_Autocomplete_Shortcodes {
@@ -62,6 +62,7 @@ class Wp_Autocomplete_Shortcodes {
 				<form role="search" method="get" class="wp-search" action="">
 					<label class="screen-reader-text" for="wp-search-field-1">Search for:</label>
 					<input type="search" id="wp-search-field-1" class="search-field" placeholder="I’m searching for…" autocomplete="off" value="" name="s">
+					<?php wp_nonce_field('form_action', 'submit_form'); ?>
 					<button type="submit" value="Search">Search</button>
 					<input type="hidden" name="post_type" value="product">
 

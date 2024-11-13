@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -9,8 +8,8 @@
  * @link       https://aarti.com
  * @since      1.0.0
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/includes
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/includes
  */
 
 /**
@@ -23,8 +22,8 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/includes
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/includes
  * @author     Aarti <chauhan.aarti13@gmail.com>
  */
 class Wp_Autocomplete {
@@ -72,7 +71,7 @@ class Wp_Autocomplete {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'wp-autocomplete';
+		$this->plugin_name = 'autocomplete-search';
 
 		$this->load_dependencies();
 		$this->set_locale();

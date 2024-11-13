@@ -1,13 +1,12 @@
 <?php
-
 /**
  * Register all actions and filters for the plugin
  *
  * @link       https://aarti.com
  * @since      1.0.0
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/includes
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/includes
  */
 
 /**
@@ -17,8 +16,8 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Wp_Autocomplete
- * @subpackage Wp_Autocomplete/includes
+ * @package    Autocomplete_Search
+ * @subpackage Autocomplete_Search/includes
  * @author     Aarti <chauhan.aarti13@gmail.com>
  */
 class Wp_Autocomplete_Loader {
@@ -40,6 +39,15 @@ class Wp_Autocomplete_Loader {
 	 * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
 	 */
 	protected $filters;
+
+	/**
+	 * The array of shortcodes registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      array    $shortcodes    The shortcodes registered with WordPress to fire when the plugin loads.
+	 */
+	protected $shortcodes;
 
 	/**
 	 * Initialize the collections used to maintain the actions and filters.

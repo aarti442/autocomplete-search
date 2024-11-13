@@ -22,7 +22,7 @@
  * @link       https://aarti.com
  * @since      1.0.0
  *
- * @package    Wp_Autocomplete
+ * @package    Autocomplete_Search
  */
 
 // If uninstall not called from WordPress, then exit.
