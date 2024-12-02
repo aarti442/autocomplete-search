@@ -172,6 +172,7 @@ class Atcl_Autocomplete_Actions
                             <div class="wp-item-search">
                                 <a class="wp-link" href="<?php echo esc_attr($item['link']);?>" title="<?php echo esc_attr($item['title']); ?>">
                                     <img src="<?php echo esc_attr($item['thumbnail']); ?>" alt="<?php echo esc_attr($item['title']); ?>">
+									<?php wp_get_attachment_image( $post_id, 'thumbnail' ); ?>
                                     <div class="wp-content">
                                         <p class="wp-title"><?php echo esc_attr($item['title']); ?></p>
                     <?php if ($type !== 'product') { ?>
