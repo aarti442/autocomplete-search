@@ -64,8 +64,8 @@ class Atcl_Autocomplete_Settings {
 
 	public function atcl_autocomplete_settings_callback() { ?>
 		<div class="wrap">
-			<h1><?php esc_html_e('Autocomplete', 'autocomplete-search');?></h1>
-			<p><?php esc_html_e('The autocomplete feature adds a find-as-you-type dropdown menu to your search bar.', 'autocomplete-search');?></p>
+			<h1><?php esc_html_e('Autocomplete Search Configurations', 'autocomplete-search');?></h1>
+			
 			<?php
 			if (isset($_POST['submit']) && !empty($_POST['submit'])) { 
 				if (isset($_REQUEST['submit_form']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['submit_form'])), 'form_action')) { 
@@ -101,7 +101,7 @@ class Atcl_Autocomplete_Settings {
 			<form method="post" action="" novalidate="novalidate">
 				<table class="config-div" cellpadding="10">
 					<tr>
-						<td><h4><?php esc_html_e('Configuration', 'autocomplete-search');?></h4></td>
+						
 						<td>
 							<table class="config-div-inner" cellpadding="5">
 								<tr>
