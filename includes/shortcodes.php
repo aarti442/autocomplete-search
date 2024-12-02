@@ -2,7 +2,7 @@
 /**
  * The shortcode functionality of the plugin
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search
@@ -13,9 +13,9 @@
  *
  * @package    Autocomplete_Search
  * @subpackage Autocomplete_Search/includes
- * @author     Aarti <chauhan.aarti13@gmail.com>
+ * @author     Aarti Chauhan <chauhan.aarti13@gmail.com>
  */
-class Wp_Autocomplete_Shortcodes {
+class Atcl_Autocomplete_Shortcodes {
 
 	/**
 	 * The ID of this plugin.
@@ -54,7 +54,7 @@ class Wp_Autocomplete_Shortcodes {
 	 * @param      string    $atts       The attributes for the shortcode.
 	 * @param      string    $content    The content of the shortcode.
 	 */
-	public function wp_autocomplete_callback( $atts, $content = '' ) {
+	public function atcl_autocomplete_callback( $atts, $content = '' ) {
 		?>
 		<div class="site-search ajax-search">
 			<div class="widget widget_search">

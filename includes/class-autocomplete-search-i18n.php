@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search
@@ -22,9 +22,9 @@
  * @since      1.0.0
  * @package    Autocomplete_Search
  * @subpackage Autocomplete_Search/includes
- * @author     Aarti <chauhan.aarti13@gmail.com>
+ * @author     Aarti Chauhan <chauhan.aarti13@gmail.com>
  */
-class Wp_Autocomplete_i18n {
+class Autocomplete_Search_i18n {
 
 
 	/**

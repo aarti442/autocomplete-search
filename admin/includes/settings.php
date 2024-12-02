@@ -2,7 +2,7 @@
 /**
  * The setting functionality of the plugin
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search
@@ -13,9 +13,9 @@
  *
  * @package    Autocomplete_Search
  * @subpackage Autocomplete_Search/admin/includes
- * @author     Aarti <chauhan.aarti13@gmail.com>
+ * @author     Aarti Chauhan <chauhan.aarti13@gmail.com>
  */
-class Wp_Autocomplete_Settings {
+class Atcl_Autocomplete_Settings {
 
 	/**
 	 * The ID of this plugin.
@@ -53,11 +53,7 @@ class Wp_Autocomplete_Settings {
 	 * @since    1.0.0
 	 */
     public function create_menu() {
-        add_menu_page(__('Autocomplete Search', 'autocomplete-search'), __('Autocomplete Search', 'autocomplete-search'), 'manage_options', 'autocomplete-settings', array($this, 'wp_autocomplete_settings_callback'));
-        // add_submenu_page('bcp-settings', __('Settings', 'wp_autocomplete'), __('Settings', 'wp_autocomplete'), 'manage_options', 'bcp-settings', array($this, 'bcp_settings_callback'));
-        // add_submenu_page('bcp-settings', __('Manage Pages', 'wp_autocomplete'), __('Manage Pages', 'wp_autocomplete'), 'manage_options', 'bcp-filter-pages', array($this, 'bcp_filter_pages_callback'));
-
-		
+        add_menu_page(__('Autocomplete Search', 'autocomplete-search'), __('Autocomplete Search', 'autocomplete-search'), 'manage_options', 'autocomplete-settings', array($this, 'atcl_autocomplete_settings_callback'));
     }
 
 	/**
@@ -66,19 +62,20 @@ class Wp_Autocomplete_Settings {
 	 * @since    1.0.0
 	 */
 
-	public function wp_autocomplete_settings_callback() { ?>
+	public function atcl_autocomplete_settings_callback() { ?>
 		<div class="wrap">
 			<h1><?php esc_html_e('Autocomplete', 'autocomplete-search');?></h1>
 			<p><?php esc_html_e('The autocomplete feature adds a find-as-you-type dropdown menu to your search bar.', 'autocomplete-search');?></p>
 			<?php
 			if (isset($_POST['submit']) && !empty($_POST['submit'])) { 
 				if (isset($_REQUEST['submit_form']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['submit_form'])), 'form_action')) { 
-					if (isset($_POST['wpauto_enable_type'])) {
-						update_option('wpauto_enable_type', array_map('sanitize_text_field', wp_unslash($_POST['wpauto_enable_type'])));
-					//	$enable_types = sanitize_text_field(wp_unslash($_POST['wpauto_enable_type']));
-						foreach ((array)$_POST['wpauto_enable_type'] as $type) {
-							$type_label = 'wpauto_' . $type . '_type_label';
-							$type_suggestion = 'wpauto_' . $type . '_suggestion';
+					if (isset($_POST['atcl_autosearch_enable_type'])) {
+						update_option('atcl_autosearch_enable_type', array_map('sanitize_text_field', wp_unslash($_POST['atcl_autosearch_enable_type'])));
+						$enable_types = array_map('sanitize_text_field', wp_unslash($_POST['atcl_autosearch_enable_type']));
+
+						foreach ($enable_types as $type) {
+							$type_label = 'atcl_autosearch_' . $type . '_type_label';
+							$type_suggestion = 'atcl_autosearch_' . $type . '_suggestion';
 							
 							if (isset($_POST[$type_label])) {
 								update_option($type_label, sanitize_text_field(wp_unslash($_POST[$type_label])));
@@ -120,26 +117,15 @@ class Wp_Autocomplete_Settings {
 								foreach($post_types as $key => $type) {  if( $key == "attachment" ) continue;?>
 								<tr>
 								<td>
-									<input type="checkbox" name="wpauto_enable_type[]" value="<?php echo esc_attr($key); ?>" 
-									<?php echo in_array($key, (array) get_option('wpauto_enable_type', [])) ? 'checked' : ''; ?>>
+									<input type="checkbox" name="atcl_autosearch_enable_type[]" value="<?php echo esc_attr($key); ?>" 
+									<?php echo in_array($key, (array) get_option('atcl_autosearch_enable_type', [])) ? 'checked' : ''; ?>>
 								</td>
-									<td><?php echo esc_attr($type->label, 'autocomplete-search');?></td>
-									<td><input type="text" value="<?php echo esc_attr((get_option('wpauto_'.$key.'_type_label'))? get_option('wpauto_'.$key.'_type_label'): $type->label,'autocomplete-search');?>" name="<?php echo esc_attr('wpauto_'.$key.'_type_label', 'autocomplete-search'); ?>"></td>
-									<td><input style="width:28%" type="number" value="<?php echo esc_attr((get_option('wpauto_'.$key.'_suggestion'))? get_option('wpauto_'.$key.'_suggestion'): "5",'autocomplete-search');?>" name="<?php echo esc_attr('wpauto_'.$key.'_suggestion', 'autocomplete-search'); ?>" max="5" min="1"></td>
+									<td><?php echo esc_attr($type->label);?></td>
+									<td><input type="text" value="<?php echo esc_attr((get_option('atcl_autosearch_'.$key.'_type_label'))? get_option('atcl_autosearch_'.$key.'_type_label'): $type->label);?>" name="<?php echo esc_attr('atcl_autosearch_'.$key.'_type_label'); ?>"></td>
+									<td><input style="width:28%" type="number" value="<?php echo esc_attr((get_option('atcl_autosearch_'.$key.'_suggestion'))? get_option('atcl_autosearch_'.$key.'_suggestion'): "5");?>" name="<?php echo esc_attr('atcl_autosearch_'.$key.'_suggestion'); ?>" max="5" min="1"></td>
 								</tr>
 								<?php } ?>
-								<!-- <tr>
-									<td><input type="checkbox" name="wpauto_enable_type[]" value="page" <?php echo in_array("page", get_option('wpauto_enable_type')) ? 'checked' : ''; ?> ></td>
-									<td><?php esc_html_e('Pages', 'autocomplete-search');?></td>
-									<td><input type="text" value="<?php esc_html((get_option('wpauto_page_type_label'))?get_option('wpauto_page_type_label'):"Pages",'autocomplete-search');?>" name="wpauto_page_type_label"></td>
-									<td ><input style="width:28%" type="number" value="<?php esc_html((get_option('wpauto_page_suggestion'))? get_option('wpauto_page_suggestion'): "5",'autocomplete-search');?>" name="wpauto_page_suggestion" max="5" min="1"></td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" name="wpauto_enable_type[]" value="product"  <?php echo in_array("product", get_option('wpauto_enable_type')) ? 'checked' : ''; ?>></td>
-									<td><?php esc_html_e('Products', 'autocomplete-search');?></td>
-									<td><input type="text" value="<?php esc_html((get_option('wpauto_product_type_label')) ? get_option('wpauto_product_type_label'): "Products",'autocomplete-search');?>" name="wpauto_product_type_label"></td>
-									<td ><input style="width:28%" type="number" value="<?php esc_html((get_option('wpauto_product_suggestion'))? get_option('wpauto_product_suggestion'): "5",'autocomplete-search');?>" name="wpauto_product_suggestion" max="5" min="1"></td>
-								</tr> -->
+							
 							</table>
 						</td>
 					</tr>

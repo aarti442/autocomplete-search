@@ -2,7 +2,7 @@
 /**
  * The action functionality of the plugin
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search
@@ -13,9 +13,9 @@
  *
  * @package    Autocomplete_Search
  * @subpackage Autocomplete_Search/includes
- * @author     Aarti <chauhan.aarti13@gmail.com>
+ * @author     Aarti Chauhan <chauhan.aarti13@gmail.com>
  */
-class Wp_Autocomplete_Actions {
+class Atcl_Autocomplete_Actions {
 
 	/**
 	 * The ID of this plugin.
@@ -54,30 +54,34 @@ class Wp_Autocomplete_Actions {
 	 * @param      string    $atts       The attributes for the shortcode.
 	 * @param      string    $content    The content of the shortcode.
 	 */
-	public function wp_autocomplete_search() {
+	public function atcl_autocomplete_search() {
 		// Sanitize the search input
 
-		if (isset($_REQUEST['form_action']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['form_action'])), 'submit_form')) {
+			if (!isset($_POST['security']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['security'])), 'autocomplete_search_nonce')) {
+				wp_send_json_error('Invalid nonce');
+				die();
+			}
+			
 			$search_value = isset($_POST['search_input']) ? sanitize_text_field(wp_unslash($_POST['search_input'])) : '';
 			if (empty($search_value)) {
 				exit;
 			}
 		
 			// Get enabled post types and their respective post limits
-			$wpauto_enable_type = get_option('wpauto_enable_type', []);
+			$atcl_autosearch_enable_type = get_option('atcl_autosearch_enable_type', []);
 		
 		
-			foreach ($wpauto_enable_type as $type) {
-				$post_limits[$type] = get_option('wpauto_'.$type.'_suggestion');
+			foreach ($atcl_autosearch_enable_type as $type) {
+				$post_limits[$type] = get_option('atcl_autosearch_'.$type.'_suggestion');
 			}
-			if (empty($wpauto_enable_type)) {
+			if (empty($atcl_autosearch_enable_type)) {
 				echo '<div class="no-result">No post types enabled for search.</div>';
 				exit;
 			}
 		
 			// Dynamically initialize $grouped_content based on enabled post types
 			$grouped_content = [];
-			foreach ($wpauto_enable_type as $type) {
+			foreach ($atcl_autosearch_enable_type as $type) {
 				$grouped_content[$type] = [];
 				
 				// Set the posts_per_page for each post type based on custom limits
@@ -113,7 +117,7 @@ class Wp_Autocomplete_Actions {
 						$post_id = $post->ID;
 						$post_title = esc_html(get_the_title($post_id));
 						$post_link = esc_url(get_permalink($post_id));
-						$thumbnail_url = get_the_post_thumbnail_url($post_id, 'thumbnail') ?: esc_url(WP_IMAGES_URL . '/placeholder.jpg');
+						$thumbnail_url = get_the_post_thumbnail_url($post_id, 'thumbnail') ?: esc_url(ATCL_IMAGES_URL . '/placeholder.jpg');
 						$trimmed_content = wp_trim_words(wp_strip_all_tags(strip_shortcodes($post->post_content)), 15, '...');
 		
 						// Prepare post data
@@ -133,7 +137,7 @@ class Wp_Autocomplete_Actions {
 							if ($price === false) {
 								$product = wc_get_product($post_id);
 								$price = $product ? wc_price($product->get_price()) : '';
-								set_transient($cache_key, $price, 12 * HOUR_IN_SECONDS); // Cache price for 12 hours
+								
 							}
 		
 							$post_data['price'] = $price;
@@ -149,26 +153,26 @@ class Wp_Autocomplete_Actions {
 			
 			// Render grouped content for all types
 			$noresult = [];
-			foreach ($wpauto_enable_type as $type) {
+			foreach ($atcl_autosearch_enable_type as $type) {
 				if (!empty($grouped_content[$type])) {
 					array_push($noresult, 1);
-					$label = (get_option('wpauto_'.$type.'_type_label')) ? get_option('wpauto_'.$type.'_type_label') : ucfirst($type);
+					$label = (get_option('atcl_autosearch_'.$type.'_type_label')) ? get_option('atcl_autosearch_'.$type.'_type_label') : ucfirst($type);
 					?>
 					<div class="autocomplete-result">
 						<div class="autocomplete-Header">
-							<div class="autocomplete-HeaderTitle"><?php echo esc_attr( $label, 'autocomplete-search');?></div>
+							<div class="autocomplete-HeaderTitle"><?php echo esc_attr( $label)?></div>
 							<div class="autocomplete-HeaderLine"></div>
 						</div>
 						<?php foreach ($grouped_content[$type] as $item) { ?>
 							<div class="wp-item-search">
-								<a class="wp-link" href="<?php echo esc_attr( $item['link'], 'autocomplete-search');?>" title="<?php echo esc_attr ($item['title'],'autocomplete-search'); ?>">
-									<img src="<?php echo esc_attr($item['thumbnail'],'autocomplete-search'); ?>" alt="<?php echo esc_attr ($item['title'],'autocomplete-search'); ?>">
+								<a class="wp-link" href="<?php echo esc_attr( $item['link']);?>" title="<?php echo esc_attr ($item['title']); ?>">
+									<img src="<?php echo esc_attr($item['thumbnail']); ?>" alt="<?php echo esc_attr ($item['title']); ?>">
 									<div class="wp-content">
-										<p class="wp-title"><?php echo esc_attr ($item['title'],'autocomplete-search'); ?></p>
+										<p class="wp-title"><?php echo esc_attr($item['title']); ?></p>
 										<?php if ($type !== 'product') { ?>
-											<span class="item-content"><?php echo esc_attr( $item['content'],'autocomplete-search'); ?></span>
+											<span class="item-content"><?php echo esc_attr( $item['content']); ?></span>
 										<?php } else { ?>
-											<span class="wp-Price-amount amount"><?php echo esc_attr( $item['price'],'autocomplete-search'); ?></span>
+											<span class="wp-Price-amount amount"><?php echo esc_attr( sanitize_text_field($item['price'])); ?></span>
 										<?php } ?>
 									</div>
 								</a>
@@ -182,7 +186,7 @@ class Wp_Autocomplete_Actions {
 			if (empty($noresult)) {
 				echo '<div class="no-result">No results matched your query <strong>' . esc_html($search_value) . '</strong>.</div>';
 			}
-		}
+		
 	
 		exit;
 	}

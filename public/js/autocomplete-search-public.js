@@ -31,10 +31,10 @@
 		ajaxRequest = jQuery.ajax({
 			type: 'POST',
 			url: ajaxurl,
-			data: {'action': 'wp_autocomplete_search', 'search_input': search_input},
+			data: {'action': 'atcl_autocomplete_search', 'search_input': search_input,'security': my_ajax_object.nonce},
 			// dataType: 'json', // Uncomment if your response is JSON
 			success: function (response) {
-				console.log(response);
+				
 				jQuery('.ajax-search-result').html(response);
 				jQuery('.ajax-search-result').show();
 				jQuery('.wp-search').removeClass('loading');

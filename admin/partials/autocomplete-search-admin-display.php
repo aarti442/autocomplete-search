@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search

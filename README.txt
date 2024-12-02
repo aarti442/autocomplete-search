@@ -1,11 +1,11 @@
 === Autocomplete Search ===
 Contributors: aarti1318
-Donate link: https://aarti.com/
 Tags: autocomplete, ajax search, posts, pages, products
 Requires at least: 5.0
-Tested up to: 6.6
-Requires PHP: 7.4
+Tested up to: 6.7.1
+Requires PHP: 7.2
 Stable tag: 1.0.0
+Author: Aarti Chauhan
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Add an autocomplete search feature to your WordPress site.Search across posts,pa
 
 == Description ==
 
-The WP Autocomplete Plugin enhances your WordPress search experience by providing an intuitive, fast, and responsive autocomplete feature. It searches across:
+The Autocomplete Search Plugin enhances your WordPress search experience by providing an intuitive, fast, and responsive autocomplete feature. It searches across:
 - Posts
 - Pages
 - WooCommerce Products
@@ -45,7 +45,7 @@ Download the plugin zip file from the WordPress Plugin Repository or your provid
 Once the installation is complete, click Activate Plugin to enable the autocomplete search functionality.
 
 4. Add the Search Box
-Use the [wp_autocomplete] shortcode to display the search box on any post, page, or widget area.
+Use the [atcl_autocomplete_search] shortcode to display the search box on any post, page, or widget area.
 
 == Frequently Asked Questions ==
 
@@ -62,7 +62,7 @@ Yes, the plugin is designed to work with most WordPress themes. If you encounter
 Yes, the autocomplete feature is fully responsive and works seamlessly on all devices, including desktops, tablets, and smartphones.
 
 = Can I add the search box to a widget area? =
-Yes! Simply use the [wp_autocomplete] shortcode in a text widget, or use the WordPress Block Editor to add the shortcode block.
+Yes! Simply use the [atcl_autocomplete_search] shortcode in a text widget.
 
 = How do I style the search box? =
 You can style the search box using your theme's custom CSS or by adding your custom styles to the site’s stylesheet.

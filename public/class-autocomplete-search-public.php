@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search
@@ -13,12 +13,14 @@
 /**
  * The public-facing functionality of the plugin.
  *
+ * Defines the plugin name, version, and two examples hooks for how to
+ * enqueue the public-facing stylesheet and JavaScript.
  *
  * @package    Autocomplete_Search
  * @subpackage Autocomplete_Search/public
- * @author     Aarti <chauhan.aarti13@gmail.com>
+ * @author     Aarti Chauhan <chauhan.aarti13@gmail.com>
  */
-class Wp_Autocomplete_Public {
+class Atcl_Autocomplete_Search_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -63,17 +65,15 @@ class Wp_Autocomplete_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Autocomplete_Loader as all of the hooks are defined
+		 * defined in Autocomplete_Search_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Wp_Autocomplete_Loader will then create the relationship
+		 * The Autocomplete_Search_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		//
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-autocomplete-public.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name.'-font-awesome', plugin_dir_url( __FILE__ ) . 'css/fontawesome.min.css', array(), $this->version, 'all' );
-		
+
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/autocomplete-search-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,27 +88,18 @@ class Wp_Autocomplete_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Autocomplete_Loader as all of the hooks are defined
+		 * defined in Autocomplete_Search_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Wp_Autocomplete_Loader will then create the relationship
+		 * The Autocomplete_Search_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-autocomplete-public.js', array( 'jquery' ), $this->version, false );
-		$localize_data = array('ajaxurl' => admin_url('admin-ajax.php'), 'homeurl' => site_url('/'));
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/autocomplete-search-public.js', array( 'jquery' ), $this->version, false );
+		$localize_data = array('ajaxurl' => admin_url('admin-ajax.php'), 'homeurl' => site_url('/'),'nonce'    => wp_create_nonce('autocomplete_search_nonce'));
 		wp_localize_script($this->plugin_name, 'my_ajax_object', $localize_data);
+
 	}
-	
-	/**
-	 * Define the shortcode [wp_autocomplete]
-	 * 
-	 * @since     1.0.0
-	 */
-	public function wp_autocomplete_callback(){
-		return "hii test";
-	}
-	
 
 }

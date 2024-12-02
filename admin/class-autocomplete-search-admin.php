@@ -1,8 +1,9 @@
 <?php
+
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search
@@ -17,9 +18,9 @@
  *
  * @package    Autocomplete_Search
  * @subpackage Autocomplete_Search/admin
- * @author     Aarti <chauhan.aarti13@gmail.com>
+ * @author     Aarti Chauhan <chauhan.aarti13@gmail.com>
  */
-class Wp_Autocomplete_Admin {
+class Atcl_Autocomplete_Search_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -64,15 +65,15 @@ class Wp_Autocomplete_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Autocomplete_Loader as all of the hooks are defined
+		 * defined in Autocomplete_Search_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Wp_Autocomplete_Loader will then create the relationship
+		 * The Autocomplete_Search_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-autocomplete-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/autocomplete-search-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -87,15 +88,15 @@ class Wp_Autocomplete_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Autocomplete_Loader as all of the hooks are defined
+		 * defined in Autocomplete_Search_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Wp_Autocomplete_Loader will then create the relationship
+		 * The Autocomplete_Search_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-autocomplete-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/autocomplete-search-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 

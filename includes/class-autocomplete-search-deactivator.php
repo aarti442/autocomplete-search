@@ -1,8 +1,9 @@
 <?php
+
 /**
  * Fired during plugin deactivation
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search
@@ -17,9 +18,9 @@
  * @since      1.0.0
  * @package    Autocomplete_Search
  * @subpackage Autocomplete_Search/includes
- * @author     Aarti <chauhan.aarti13@gmail.com>
+ * @author     Aarti Chauhan <chauhan.aarti13@gmail.com>
  */
-class Wp_Autocomplete_Deactivator {
+class Atcl_Autocomplete_Search_Deactivator {
 
 	/**
 	 * Short Description. (use period)
@@ -31,11 +32,11 @@ class Wp_Autocomplete_Deactivator {
 	public static function deactivate() {
 		$post_types = get_post_types( array( 'exclude_from_search' => false ), 'objects' );
 		foreach($post_types as $key => $type) {  if( $key == "attachment" ) continue;
-			$wpauto_enable_type[] = $key;
-			delete_option('wpauto_'.$key.'_type_label');
-			delete_option('wpauto_'.$key.'_suggestion');
+			$atcl_autosearch_enable_type[] = $key;
+			delete_option('atcl_autosearch_'.$key.'_type_label');
+			delete_option('atcl_autosearch_'.$key.'_suggestion');
 		}
-		delete_option('wpauto_enable_type');
+		delete_option('atcl_autosearch_enable_type');
 	}
 
 }

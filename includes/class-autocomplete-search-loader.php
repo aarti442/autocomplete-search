@@ -1,8 +1,9 @@
 <?php
+
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://aarti.com
+ * @link       https://profiles.wordpress.org/aarti1318/
  * @since      1.0.0
  *
  * @package    Autocomplete_Search
@@ -18,9 +19,9 @@
  *
  * @package    Autocomplete_Search
  * @subpackage Autocomplete_Search/includes
- * @author     Aarti <chauhan.aarti13@gmail.com>
+ * @author     Aarti Chauhan <chauhan.aarti13@gmail.com>
  */
-class Wp_Autocomplete_Loader {
+class Atcl_Autocomplete_Search_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
@@ -90,7 +91,6 @@ class Wp_Autocomplete_Loader {
 	
         return $shortcodes;
     }
-
 	/**
 	 * Add a new action to the collection to be registered with WordPress.
 	 *
@@ -161,10 +161,10 @@ class Wp_Autocomplete_Loader {
 		foreach ( $this->actions as $hook ) {
 			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
 		}
+
 		foreach ($this->shortcodes as $shortcode) {
             add_shortcode($shortcode['shortcode'], array($shortcode['component'], $shortcode['callback']));
         }
-
 	}
 
 }
