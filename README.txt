@@ -1,6 +1,7 @@
 === Autocomplete Search ===
 Contributors: aarti1318
 Tags: autocomplete, ajax search, posts, pages, products
+Donate link: https://www.paypal.com/aartichauhan13
 Requires at least: 5.0
 Tested up to: 6.7.1
 Requires PHP: 7.2
@@ -75,9 +76,9 @@ At this time, the plugin only provides autocomplete suggestions in the dropdown.
 
 == Screenshots ==
 
-1. /public/images/Screenshot-1
-2. /public/images/Screenshot-2
-3. /public/images/Screenshot-3
+1. /assets/Screenshot-1.png
+2. /assets/Screenshot-2.png
+3. /assets/Screenshot-3.png
 
 == Changelog ==
 
